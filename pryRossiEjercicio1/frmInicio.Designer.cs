@@ -54,14 +54,15 @@
             lblLogo.TabIndex = 1;
             lblLogo.Text = "Sintepart SRL";
             // 
-            // frmPrimero
+            // frmInicio
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.Bisque;
             ClientSize = new Size(537, 450);
             Controls.Add(lblLogo);
             Controls.Add(lblBienvenido);
-            Name = "frmPrimero";
+            Name = "frmInicio";
             Text = "Bienvenido al Sistema";
             ResumeLayout(false);
             PerformLayout();

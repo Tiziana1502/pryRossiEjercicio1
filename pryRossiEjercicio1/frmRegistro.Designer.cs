@@ -29,13 +29,13 @@
         private void InitializeComponent()
         {
             lblUsuario = new Label();
-            lstModulo = new ComboBox();
-            btnAceptar = new Button();
+            cmbModulo = new ComboBox();
             txtUsuario = new TextBox();
             lblContraseña = new Label();
             lblModulo = new Label();
             txtContraseña = new TextBox();
             btnCancelar = new Button();
+            btnAceptar = new Button();
             SuspendLayout();
             // 
             // lblUsuario
@@ -46,28 +46,22 @@
             lblUsuario.Size = new Size(47, 15);
             lblUsuario.TabIndex = 0;
             lblUsuario.Text = "Usuario";
-            lblUsuario.Click += this.label1_Click;
             // 
-            // lstModulo
+            // cmbModulo
             // 
-            lstModulo.FormattingEnabled = true;
-            lstModulo.Location = new Point(376, 174);
-            lstModulo.Name = "lstModulo";
-            lstModulo.Size = new Size(135, 23);
-            lstModulo.TabIndex = 1;
-            // 
-            // btnAceptar
-            // 
-            btnAceptar.Location = new Point(567, 70);
-            btnAceptar.Name = "btnAceptar";
-            btnAceptar.Size = new Size(75, 23);
-            btnAceptar.TabIndex = 2;
-            btnAceptar.Text = "Aceptar";
-            btnAceptar.UseVisualStyleBackColor = true;
+            cmbModulo.DropDownStyle = ComboBoxStyle.DropDownList;
+            cmbModulo.FormattingEnabled = true;
+            cmbModulo.Items.AddRange(new object[] { "ADM", "SIST", "COM", "VTA" });
+            cmbModulo.Location = new Point(376, 174);
+            cmbModulo.Name = "cmbModulo";
+            cmbModulo.Size = new Size(135, 23);
+            cmbModulo.TabIndex = 1;
+            cmbModulo.SelectedIndexChanged += cmbModulo_SelectedIndexChanged;
             // 
             // txtUsuario
             // 
             txtUsuario.Location = new Point(376, 74);
+            txtUsuario.MaxLength = 10;
             txtUsuario.Name = "txtUsuario";
             txtUsuario.Size = new Size(135, 23);
             txtUsuario.TabIndex = 3;
@@ -93,34 +87,48 @@
             // txtContraseña
             // 
             txtContraseña.Location = new Point(376, 126);
+            txtContraseña.MaxLength = 10;
             txtContraseña.Name = "txtContraseña";
+            txtContraseña.PasswordChar = '*';
             txtContraseña.Size = new Size(135, 23);
             txtContraseña.TabIndex = 6;
             // 
             // btnCancelar
             // 
-            btnCancelar.Location = new Point(567, 126);
+            btnCancelar.Location = new Point(543, 126);
             btnCancelar.Name = "btnCancelar";
-            btnCancelar.Size = new Size(75, 23);
+            btnCancelar.Size = new Size(99, 23);
             btnCancelar.TabIndex = 7;
             btnCancelar.Text = "Cancelar";
             btnCancelar.UseVisualStyleBackColor = true;
+            btnCancelar.Click += btnCancelar_Click;
+            // 
+            // btnAceptar
+            // 
+            btnAceptar.Location = new Point(543, 73);
+            btnAceptar.Name = "btnAceptar";
+            btnAceptar.Size = new Size(99, 23);
+            btnAceptar.TabIndex = 8;
+            btnAceptar.Text = "Aceptar";
+            btnAceptar.UseVisualStyleBackColor = true;
+            btnAceptar.Click += btnAceptar_Click;
             // 
             // frmRegistro
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(717, 327);
+            Controls.Add(btnAceptar);
             Controls.Add(btnCancelar);
             Controls.Add(txtContraseña);
             Controls.Add(lblModulo);
             Controls.Add(lblContraseña);
             Controls.Add(txtUsuario);
-            Controls.Add(btnAceptar);
-            Controls.Add(lstModulo);
+            Controls.Add(cmbModulo);
             Controls.Add(lblUsuario);
             Name = "frmRegistro";
             Text = "Login";
+            Load += frmRegistro_Load;
             ResumeLayout(false);
             PerformLayout();
         }
@@ -128,12 +136,12 @@
         #endregion
 
         private Label lblUsuario;
-        private ComboBox lstModulo;
-        private Button btnAceptar;
+        private ComboBox cmbModulo;
         private TextBox txtUsuario;
         private Label lblContraseña;
         private Label lblModulo;
         private TextBox txtContraseña;
         private Button btnCancelar;
+        private Button btnAceptar;
     }
 }
