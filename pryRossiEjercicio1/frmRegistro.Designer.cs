@@ -50,6 +50,7 @@
             // cmbModulo
             // 
             cmbModulo.DropDownStyle = ComboBoxStyle.DropDownList;
+            cmbModulo.Enabled = false;
             cmbModulo.FormattingEnabled = true;
             cmbModulo.Items.AddRange(new object[] { "ADM", "SIST", "COM", "VTA" });
             cmbModulo.Location = new Point(376, 174);
@@ -65,6 +66,7 @@
             txtUsuario.Name = "txtUsuario";
             txtUsuario.Size = new Size(135, 23);
             txtUsuario.TabIndex = 3;
+            txtUsuario.TextChanged += txtUsuario_TextChanged;
             // 
             // lblContraseña
             // 
@@ -86,12 +88,14 @@
             // 
             // txtContraseña
             // 
+            txtContraseña.Enabled = false;
             txtContraseña.Location = new Point(376, 126);
             txtContraseña.MaxLength = 10;
             txtContraseña.Name = "txtContraseña";
             txtContraseña.PasswordChar = '*';
             txtContraseña.Size = new Size(135, 23);
             txtContraseña.TabIndex = 6;
+            txtContraseña.TextChanged += txtContraseña_TextChanged;
             // 
             // btnCancelar
             // 
@@ -105,6 +109,7 @@
             // 
             // btnAceptar
             // 
+            btnAceptar.Enabled = false;
             btnAceptar.Location = new Point(543, 73);
             btnAceptar.Name = "btnAceptar";
             btnAceptar.Size = new Size(99, 23);

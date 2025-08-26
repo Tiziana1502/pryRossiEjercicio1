@@ -42,7 +42,41 @@ namespace pryRossiEjercicio1
 
         private void cmbModulo_SelectedIndexChanged(object sender, EventArgs e)
         {
+            if (cmbModulo.SelectedIndex != -1)
+            {
+                btnAceptar.Enabled = true;
+            }
+            else
+            {
+                btnAceptar.Enabled =false;
+            }
+        }
 
+        private void txtUsuario_TextChanged(object sender, EventArgs e)
+        {
+            if (txtUsuario.Text == "")
+            {
+                txtContraseña.Enabled = false;
+                // para asignar =
+                // comparar valores ==
+            }
+            else
+            {
+                txtContraseña.Enabled = true;
+            }
+        }
+
+        private void txtContraseña_TextChanged(object sender, EventArgs e)
+        {
+            if (txtContraseña.Text != "")
+            {
+                cmbModulo.Enabled = true;
+            }
+            else
+            {
+                cmbModulo.Enabled = false;
+                cmbModulo.SelectedIndex = -1;
+            }
         }
     }
 }
